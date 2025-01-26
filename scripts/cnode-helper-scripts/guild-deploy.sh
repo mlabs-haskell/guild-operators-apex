@@ -605,7 +605,7 @@ populate_cnode() {
     curl -sL -f -m ${CURL_TIMEOUT} -o config.json.tmp "${NWCONFURL}/config.json" || err_exit "${err_msg} config.json"
     curl -sL -f -m ${CURL_TIMEOUT} -o dbsync.json.tmp "${NWCONFURL}/db-sync-config.json" || err_exit "${err_msg} dbsync-sync-config.json"
   else
-    err_exit "Unknown network specified! Kindly re-check the network name, valid options are: afpm."
+    err_exit "Unknown network specified! Kindly re-check the network name, valid options are: afpm and afpmtestnet."
   fi
   sed -e "s@/opt/cardano/cnode@${CNODE_HOME}@g" -i ./*.json.tmp
   if [[ ${FORCE_OVERWRITE} = 'Y' ]]; then
