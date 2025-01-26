@@ -61,11 +61,11 @@ versionCheck() { printf '%s\n%s' "${1//v/}" "${2//v/}" | sort -C -V; } #$1=avail
 usage() {
   cat <<-EOF >&2
 
-		Usage: $(basename "$0") [-n <afpm>] [-p path] [-t <name>] [-b <branch>] [-u] [-s [p][b][l][m][d][c][o][w][x][f][s]]
+		Usage: $(basename "$0") [-n <afpm|afpmtestnet>] [-p path] [-t <name>] [-b <branch>] [-u] [-s [p][b][l][m][d][c][o][w][x][f][s]]
 		Set up dependencies for building/using common tools across cardano ecosystem.
 		The script will always update dynamic content from existing scripts retaining existing user variables
 
-		-n    Connect to specified network instead of afpm network (Default: connect to cardano afpm network) eg: -n afpt
+		-n    Connect to specified network instead of afpm network (Default: connect to cardano afpm network) eg: -n afpmtestnet
 		-p    Parent folder path underneath which the top-level folder will be created (Default: /opt/apex)
 		-t    Alternate name for top level folder - only alpha-numeric chars allowed (Default: cnode)
 		-b    Use alternate branch of scripts to download - only recommended for testing/development (Default: master)
@@ -596,7 +596,7 @@ populate_cnode() {
   # Download node config, genesis and topology from template
   #NWCONFURL="https://raw.githubusercontent.com/input-output-hk/cardano-playground/main/static/book.play.dev.cardano.org/environments"
   NWCONFURL="${URL_RAW}/files/configs/${NETWORK}/"
-  if [[ ${NETWORK} =~ ^(afpm)$ ]]; then
+  if [[ ${NETWORK} =~ ^(afpm|afpmtestnet)$ ]]; then
     curl -sL -f -m ${CURL_TIMEOUT} -o alonzo-genesis.json.tmp "${NWCONFURL}/alonzo-genesis.json" || err_exit "${err_msg} alonzo-genesis.json"
     curl -sL -f -m ${CURL_TIMEOUT} -o byron-genesis.json.tmp "${NWCONFURL}/byron-genesis.json" || err_exit "${err_msg} byron-genesis.json"
     curl -sL -f -m ${CURL_TIMEOUT} -o conway-genesis.json.tmp "${NWCONFURL}/conway-genesis.json" || err_exit "${err_msg} conway-genesis.json"
