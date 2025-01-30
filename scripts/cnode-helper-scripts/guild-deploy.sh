@@ -6,7 +6,7 @@
 # User Variables - Change as desired     #
 # command line flags override set values #
 ##########################################
-#G_ACCOUNT="Scitz0"             # Override github GUILD account if you forked the project
+#G_ACCOUNT="mlabs-haskell"             # Override github GUILD account if you forked the project
 #NETWORK='afpm'                 # Connect to specified network instead of public network (Default: connect to public cardano network)
 #WANT_BUILD_DEPS='Y'            # Skip installing OS level dependencies (Default: will check and install any missing OS level prerequisites)
 #FORCE_OVERWRITE='N'            # Force overwrite of all config files (topology.json, config.json and genesis files)
@@ -89,7 +89,7 @@ usage() {
 
 # Set Default Environment Variables
 set_defaults() {
-  [[ -z ${G_ACCOUNT} ]] && G_ACCOUNT="Scitz0"
+  [[ -z ${G_ACCOUNT} ]] && G_ACCOUNT="mlabs-haskell"
   [[ -z ${NETWORK} ]] && NETWORK='afpm'
   [[ -z ${WANT_BUILD_DEPS} ]] && WANT_BUILD_DEPS='N'
   [[ -z ${FORCE_OVERWRITE} ]] && FORCE_OVERWRITE='N'

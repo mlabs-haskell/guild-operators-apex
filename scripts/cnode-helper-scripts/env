@@ -40,7 +40,7 @@
                                                         # https://www.koios.rest/
 #KOIOS_API_TOKEN=""                                     # The Koios API token to use for authenticated requests. If left empty, unauthenticated requests will be made.
 #DBSYNC_QUERY_FOLDER="${CNODE_HOME}/files/dbsync/queries" # [advanced feature] Folder containing DB-Sync chain analysis queries
-#G_ACCOUNT="Scitz0"                                     # Override default github repository if you forked project
+#G_ACCOUNT="mlabs-haskell"                              # Override default github repository if you forked project
 
 #WALLET_FOLDER="${CNODE_HOME}/priv/wallet"              # Root folder for Wallets
 #POOL_FOLDER="${CNODE_HOME}/priv/pool"                  # Root folder for Pools
@@ -926,7 +926,7 @@ set_default_vars() {
   [[ $(basename $0 2>/dev/null) = "topologyUpdater.sh" ]] && OFFLINE_MODE='Y' # for backwards compatibility
 
   [[ -f "${PARENT}"/.env_branch ]] && BRANCH=$(cat "${PARENT}"/.env_branch) || BRANCH=main
-  [[ -z ${G_ACCOUNT} ]] && G_ACCOUNT="Scitz0"
+  [[ -z ${G_ACCOUNT} ]] && G_ACCOUNT="mlabs-haskell"
 
   URL_RAW="https://raw.githubusercontent.com/${G_ACCOUNT}/guild-operators-apex/${BRANCH}"
   URL_DOCS="${URL_RAW}/docs/Scripts"
